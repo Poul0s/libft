@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:46:43 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:46:51 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:20:53 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	i;
 	size_t	dest_len;
 
-	if (dest == NULL || src == NULL)
+	if (size == 0)
 		return (0);
 	i = 0;
 	dest_len = 0;
 	while (dest[dest_len] && dest_len < size)
 		dest_len++;
-	while (i < size - dest_len - 1 && src[i])
+	while (src[i] && i + dest_len < size - 1)
 	{
 		dest[dest_len + i] = src[i];
 		i++;
