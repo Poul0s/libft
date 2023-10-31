@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:32:32 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:47 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 15:04:22 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,14 @@ char	*ft_itoa(int n)
 
 	len = ft_intlen(n);
 	res = malloc((len + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
 	i = len;
 	res[i--] = 0;
 	if (n < 0)
 	{
 		un = -n;
-		res[i++] = '-';
+		res[0] = '-';
 	}
 	else
 		un = n;
