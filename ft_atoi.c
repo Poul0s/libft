@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 14:43:10 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:46:47 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	ft_atoi(const char *nptr)
 	int		sign;
 	int		res;
 
-	if (nptr == NULL)
-		return (0);
 	i = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;

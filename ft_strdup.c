@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:47:25 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:52:35 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:46:38 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 	char	*copy;
 
-	if (s == NULL)
-		return (NULL);
 	len = ft_strlen((char *)s);
 	i = 0;
 	copy = malloc((len + 1) * sizeof(char));
@@ -31,6 +29,6 @@ char	*ft_strdup(const char *s)
 		copy[i] = s[i];
 		i++;
 	}
-	copy[i] = i;
+	copy[i] = 0;
 	return (copy);
 }
