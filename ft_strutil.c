@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:32:27 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/30 15:56:56 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 12:20:17 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
+		i++;
 	}
 	if (i < n)
 		return (s1[i] - s2[i]);
