@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:55 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:47:25 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:50:08 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_strdup(const char *s)
 {
 	size_t	i;
-	int		sign;
-	int		res;
+	size_t	len;
+	char	*copy;
 
-	if (nptr == NULL)
-		return (0);
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen((char *)s);
 	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
+	copy = malloc((len + 1) * sizeof(char));
+	if (copy == NULL)
+		return (copy);
+	while (i < len)
 	{
-		res = res * 10 + nptr[i] - '0';
+		copy[i] = s[i];
 		i++;
 	}
-	return (res * sign);
+	copy[i] = i;
+	return (copy);
 }

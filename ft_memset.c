@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:55 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/30 13:12:26 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:46:04 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	int		sign;
-	int		res;
 
-	if (nptr == NULL)
-		return (0);
+	if (s == NULL)
+		return (s);
 	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (res * sign);
+	while (i < n)
+		((int *)s)[i++] = c;
+	return (s);
 }

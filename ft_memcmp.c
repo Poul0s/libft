@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:55 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:43:38 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:43:52 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	int		sign;
-	int		res;
+	size_t			i;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	if (nptr == NULL)
-		return (0);
 	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		res = res * 10 + nptr[i] - '0';
+		if (p1 != p2)
+			return (p1[i] - p2[i]);
 		i++;
 	}
-	return (res * sign);
+	return (0);
 }

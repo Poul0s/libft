@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:55 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:37:59 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:38:20 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_atoi(const char *nptr)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	int		sign;
-	int		res;
+	unsigned int	un;
+	char			c;
 
-	if (nptr == NULL)
-		return (0);
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
+	if (n < 0)
 	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
+		write(1, "-", 1);
+		un = -n;
 	}
-	return (res * sign);
+	else
+		un = n;
+	if (un > 9)
+		ft_putnbr_fd(un / 10, fd);
+	c = un % 10 + '0';
+	write(fd, &c, 1);
 }

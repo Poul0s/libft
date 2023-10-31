@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcase.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 13:36:22 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/30 13:38:41 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:44:48 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:45:10 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ' ');
-	else
-		return (c);
-}
+	size_t	i;
+	int		overlap;
 
-int	ft_toupper(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (c - ' ');
+	if (dest == NULL || src == NULL)
+		return (dest);
+	if (src < dest)
+	{
+		overlap = 1;
+		i = n;
+	}
 	else
-		return (c);
+	{
+		overlap = 0;
+		i = 0;
+	}
+	while ((overlap == 1 && i > 0) || (overlap == 0 && i < n))
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		if (overlap == 1)
+			i--;
+		else
+			i++;
+	}
+	return (dest);
 }

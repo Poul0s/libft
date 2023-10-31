@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isstr.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 12:01:16 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:19:27 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:44:22 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:45:08 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
+	size_t	i;
+	int		*ptr;
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_isalnum(int c)
-{
-	return (ft_isalpha(c) || ft_isdigit(c));
-}
-
-int	ft_isascii(int c)
-{
-	return (c >= 0 && c <= 127);
-}
-
-int	ft_isprint(int c)
-{
-	return (c >= 32 && c <= 126);
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	ptr = (int *)s;
+	while (i < n && ptr[i] != c)
+		i++;
+	if (ptr[i] == c)
+		return (ptr + i);
+	return (NULL);
 }

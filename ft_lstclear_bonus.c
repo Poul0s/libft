@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:21:04 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:32:55 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 12:41:40 by psalame           #+#    #+#             */
+/*   Updated: 2023/10/31 12:41:53 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
-	int		sign;
-	int		res;
+	t_list	*first;
+	t_list	*next;
 
-	if (nptr == NULL)
-		return (0);
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-		if (nptr[i++] == '-')
-			sign = -1;
-	res = 0;
-	while (ft_isdigit(nptr[i]))
+	if (lst == NULL)
+		return ;
+	first = *lst;
+	while (first != NULL)
 	{
-		res = res * 10 + nptr[i] - '0';
-		i++;
+		next = first->next;
+		ft_lstdelone(first, del);
+		first = next;
 	}
-	return (res * sign);
+	*lst = NULL;
 }
