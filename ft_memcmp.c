@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:43:38 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:43:52 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 13:15:28 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	p2 = (unsigned char *)s2;
 	while (i < n)
 	{
-		if (p1 != p2)
+		if (p1[i] != p2[i])
 			return (p1[i] - p2[i]);
 		i++;
 	}
