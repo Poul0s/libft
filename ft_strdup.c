@@ -6,11 +6,12 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:47:25 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 12:50:08 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 12:52:35 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
