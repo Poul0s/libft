@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:12:26 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/30 15:07:01 by psalame          ###   ########.fr       */
+/*   Updated: 2023/10/31 12:09:46 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (dest == NULL || src == NULL)
+	if (dest == NULL && src == NULL && n != 0)
 		return (dest);
 	i = 0;
 	while (i < n)
 	{
-		((int *)dest)[i] = ((int *)src)[i];
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
 	return (dest);
@@ -58,7 +58,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	while ((overlap == 1 && i > 0) || (overlap == 0 && i < n))
 	{
-		((int *)dest)[i] = ((int *)src)[i];
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		if (overlap == 1)
 			i--;
 		else
@@ -69,13 +69,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	size_t	i;
+	int		*ptr;
 
 	if (s == NULL)
 		return (NULL);
 	i = 0;
-	ptr = (unsigned char *)s;
+	ptr = (int *)s;
 	while (i < n && ptr[i] != c)
 		i++;
 	if (ptr[i] == c)
