@@ -6,11 +6,11 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:18:15 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 11:38:01 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/01 12:48:32 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 #include "stdlib.h"
 
 t_list	*ft_lstnew(void *content)

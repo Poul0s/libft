@@ -6,11 +6,11 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:42:25 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 16:12:44 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/01 12:48:30 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
