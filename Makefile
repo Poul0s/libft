@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/01 14:09:31 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/01 14:55:03 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,12 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJS) $(BOBJS)
-	ar -rc $(NAME) $^ $(BHEAD)
+	ar -rc $(NAME) $^ $(HEAD) $(BHEAD)
+
+# bonus: set_bonus_var $(NAME)
+
+# set_bonus_var:
+# 	$(eval $SRCS := $(SRCS) $(BSRCS))
+#	 $(eval $OBJS := $(OBJS) $(BOBJS))
 
 .PHONY: bonus all clean fclean re
