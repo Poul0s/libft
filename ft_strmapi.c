@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:28:33 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 10:51:18 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/01 11:52:24 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (i < len)
 	{
-		res[i] = (*f)(i, res[i]);
+		res[i] = (*f)(i, ((char *)s)[i]);
 		i++;
 	}
 	res[i] = 0;
