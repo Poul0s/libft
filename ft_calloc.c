@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:38:42 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 14:43:55 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/01 12:33:01 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (nmemb != 0 && size != 0 && (nmemb * size) / size != nmemb)
+		return (NULL);
 	if (nmemb == 0 || size == 0)
 		return (malloc(0));
 	ptr = malloc(nmemb * size);

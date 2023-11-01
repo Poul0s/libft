@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:48:02 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 14:37:15 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/01 12:20:27 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (*little == 0 || big == little)
 		return ((char *)big);
 	i = 0;
-	while (big[i] && i + ft_strlen((char *)little) < len)
+	while (big[i] && i + ft_strlen((char *)little) <= len)
 	{
 		if (big[i] == *little)
 		{
