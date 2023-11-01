@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/01 15:59:05 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/01 16:01:51 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,6 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJS) $(BOBJS)
-	ar -rc $(NAME) $^ $(BHEAD)
+	ar -rc $(NAME) $^ $(HEAD) $(BHEAD)
 
 .PHONY: bonus all clean fclean re
