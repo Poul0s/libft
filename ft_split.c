@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:44:36 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 15:01:18 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/02 17:20:55 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ char	**ft_split(char const *s, char c)
 	char	**res;
 	size_t	nb_words;
 
+	if (s == NULL)
+		return (NULL);
 	nb_words = ft_get_nb_words(s, c);
 	if (nb_words == 0)
 	{
