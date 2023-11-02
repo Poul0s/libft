@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/02 11:10:59 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/02 11:24:51 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,3 @@ bonus: $(OBJS) $(BOBJS)
 	ar -rc $(NAME) $^ $(HEAD)
 
 .PHONY: bonus all clean fclean re
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BSRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
