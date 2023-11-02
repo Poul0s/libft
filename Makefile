@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/01 16:01:51 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/02 11:10:59 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ OBJS=$(SRCS:.c=.o)
 HEAD=libft.h
 BSRCS=ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c  ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 BOBJS=$(BSRCS:.c=.o)
-BHEAD=libft_bonus.h
 
 all: $(NAME)
 
@@ -37,6 +36,10 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJS) $(BOBJS)
-	ar -rc $(NAME) $^ $(HEAD) $(BHEAD)
+	ar -rc $(NAME) $^ $(HEAD)
 
 .PHONY: bonus all clean fclean re
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BSRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
