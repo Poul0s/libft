@@ -6,11 +6,9 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:35:26 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/03 12:26:31 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/07 22:16:12 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_isprint(int c)
 {

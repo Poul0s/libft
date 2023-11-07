@@ -6,13 +6,11 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:44:36 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/02 17:20:55 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/07 22:16:59 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 static int	ft_get_nb_words(char const *s, char c)
 {

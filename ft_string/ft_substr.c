@@ -6,12 +6,11 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:51:37 by psalame           #+#    #+#             */
-/*   Updated: 2023/10/31 16:12:06 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/07 22:17:16 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static char	*ft_empty_str(void)
 {

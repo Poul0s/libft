@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_nb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 12:47:25 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/07 22:17:05 by psalame          ###   ########.fr       */
+/*   Created: 2023/11/02 18:09:46 by psalame           #+#    #+#             */
+/*   Updated: 2023/11/07 22:15:22 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_putnbr_nb(int nb)
 {
-	size_t	i;
-	size_t	len;
-	char	*copy;
+	unsigned int	newnb;
+	char			c;
+	short			len;
 
-	len = ft_strlen((char *)s);
-	i = 0;
-	copy = malloc((len + 1) * sizeof(char));
-	if (copy == NULL)
-		return (copy);
-	while (i < len)
+	len = 0;
+	if (nb < 0)
 	{
-		copy[i] = s[i];
-		i++;
+		newnb = -(nb + 1) + 1;
+		write(1, "-", 1);
+		len++;
 	}
-	copy[i] = 0;
-	return (copy);
+	else
+		newnb = nb;
+	if (newnb >= 10)
+		len += ft_putnbr_nb(newnb / 10);
+	c = newnb % 10 + '0';
+	write(1, &c, 1);
+	len++;
+	return (len);
 }

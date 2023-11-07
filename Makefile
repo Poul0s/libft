@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/07 21:56:02 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/07 22:13:23 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,18 @@ SRCS	=	ft_string/ft_strlen.c \
 			ft_convert/ft_toupper.c \
 			ft_convert/ft_atoi.c \
 			ft_convert/ft_itoa.c \
+			ft_convert/ft_ultoa_base.c \
 			ft_print/ft_putstr_fd.c \
 			ft_print/ft_putchar_fd.c \
 			ft_print/ft_putendl_fd.c \
 			ft_print/ft_putnbr_fd.c \
+			ft_print/ft_printf.c \
+			ft_print/ft_putchar_nb.c \
+			ft_print/ft_putstr_nb.c \
+			ft_print/ft_putptr_nb.c \
+			ft_print/ft_putnbr_nb.c \
+			ft_print/ft_putunbr_nb.c \
+			ft_print/ft_putxnbr_nb.c \
 			ft_linkedList/ft_lstnew.c \
 			ft_linkedList/ft_lstsize.c \
 			ft_linkedList/ft_lstlast.c \

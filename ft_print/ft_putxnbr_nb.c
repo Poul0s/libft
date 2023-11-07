@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putxnbr_nb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 12:47:25 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/07 22:17:05 by psalame          ###   ########.fr       */
+/*   Created: 2023/11/02 23:51:09 by psalame           #+#    #+#             */
+/*   Updated: 2023/11/07 22:15:43 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_putxnbr_nb(unsigned int nb, short maj)
 {
-	size_t	i;
-	size_t	len;
-	char	*copy;
+	char	*str;
+	int		len;
 
-	len = ft_strlen((char *)s);
-	i = 0;
-	copy = malloc((len + 1) * sizeof(char));
-	if (copy == NULL)
-		return (copy);
-	while (i < len)
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = 0;
-	return (copy);
+	if (maj)
+		str = ft_ultoa_base(nb, FT_HEXA_BASE_MAJ);
+	else
+		str = ft_ultoa_base(nb, FT_HEXA_BASE);
+	if (str == NULL)
+		return (0);
+	len = ft_putstr_nb(str);
+	free(str);
+	return (len);
 }
