@@ -6,36 +6,78 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/02 17:15:51 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/07 21:56:02 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror
-NAME=libft.a
-SRCS=ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_memcmp.c ft_memchr.c ft_memmove.c ft_memcpy.c ft_bzero.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strdup.c ft_strnstr.c ft_strncmp.c ft_tolower.c ft_toupper.c ft_atoi.c ft_itoa.c ft_calloc.c ft_putstr_fd.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c 
-OBJS=$(SRCS:.c=.o)
-HEAD=libft.h
-BSRCS=ft_lstnew.c ft_lstsize.c ft_lstlast.c  ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-BOBJS=$(BSRCS:.c=.o)
+CC		=	gcc
+
+CFLAGS	=	-Wall -Wextra -Werror
+
+NAME	=	libft.a
+
+SRCS	=	ft_string/ft_strlen.c \
+			ft_string/ft_strlcpy.c \
+			ft_string/ft_strlcat.c \
+			ft_string/ft_strchr.c \
+			ft_string/ft_strrchr.c \
+			ft_string/ft_strdup.c \
+			ft_string/ft_strnstr.c \
+			ft_string/ft_strncmp.c \
+			ft_string/ft_split.c \
+			ft_string/ft_striteri.c \
+			ft_string/ft_strjoin.c \
+			ft_string/ft_strmapi.c \
+			ft_string/ft_strtrim.c \
+			ft_string/ft_substr.c \
+			ft_is/ft_isalpha.c \
+			ft_is/ft_isdigit.c \
+			ft_is/ft_isalnum.c \
+			ft_is/ft_isascii.c \
+			ft_is/ft_isprint.c \
+			ft_memoryManager/ft_memset.c \
+			ft_memoryManager/ft_memcmp.c \
+			ft_memoryManager/ft_memchr.c \
+			ft_memoryManager/ft_memmove.c \
+			ft_memoryManager/ft_memcpy.c \
+			ft_memoryManager/ft_bzero.c \
+			ft_memoryManager/ft_calloc.c \
+			ft_convert/ft_tolower.c \
+			ft_convert/ft_toupper.c \
+			ft_convert/ft_atoi.c \
+			ft_convert/ft_itoa.c \
+			ft_print/ft_putstr_fd.c \
+			ft_print/ft_putchar_fd.c \
+			ft_print/ft_putendl_fd.c \
+			ft_print/ft_putnbr_fd.c \
+			ft_linkedList/ft_lstnew.c \
+			ft_linkedList/ft_lstsize.c \
+			ft_linkedList/ft_lstlast.c \
+			ft_linkedList/ft_lstadd_front.c \
+			ft_linkedList/ft_lstadd_back.c \
+			ft_linkedList/ft_lstdelone.c \
+			ft_linkedList/ft_lstclear.c \
+			ft_linkedList/ft_lstiter.c \
+			ft_linkedList/ft_lstmap.c
+
+OBJS	=	$(SRCS:.c=.o)
+
+HEADER	=	header
 
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	ar -rc $@ $^ $(HEAD)
+	ar -rc $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $^ -I $(HEADER) -o $@
 
 clean:
-	rm -rf $(OBJS) $(BOBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
-
-bonus: $(OBJS) $(BOBJS)
-	ar -rc $(NAME) $^ $(HEAD)
 
 .PHONY: bonus all clean fclean re
