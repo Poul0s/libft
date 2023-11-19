@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_read_to_cstr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:32:27 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/19 17:56:40 by psalame          ###   ########.fr       */
+/*   Created: 2023/11/19 17:51:08 by psalame           #+#    #+#             */
+/*   Updated: 2023/11/19 17:55:44 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+ssize_t	ft_read_to_cstr(int fd, char *buffer)
 {
-	size_t	i;
-	char	chr;
+	ssize_t	res;
 
-	if (s == NULL)
-		return (NULL);
-	chr = (char) c;
-	i = 0;
-	while (s[i] != 0 && s[i] != chr)
-		i++;
-	if (s[i] == chr)
-		return ((char *)s + i);
-	return (NULL);
+	if (buffer == NULL)
+		return (-1);
+	res = read(fd, buffer, BUFFER_SIZE);
+	if (buffer == NULL || res == -1)
+		return (-1);
+	buffer[res] = 0;
+	return (res);
 }

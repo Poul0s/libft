@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 14:32:27 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/19 17:56:40 by psalame          ###   ########.fr       */
+/*   Created: 2023/10/31 16:00:19 by psalame           #+#    #+#             */
+/*   Updated: 2023/11/19 17:59:31 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+# include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-	char	chr;
+char	*get_next_line(int fd);
+ssize_t	ft_read_to_cstr(int fd, char *buffer);
 
-	if (s == NULL)
-		return (NULL);
-	chr = (char) c;
-	i = 0;
-	while (s[i] != 0 && s[i] != chr)
-		i++;
-	if (s[i] == chr)
-		return ((char *)s + i);
-	return (NULL);
-}
+#endif
