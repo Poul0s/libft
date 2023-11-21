@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:16:24 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/21 17:30:12 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/21 22:28:48 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ ssize_t	ft_printf(const char *str, ...)
 	i = 0;
 	strlen = ft_strlen((char *)str);
 	res_str_len = 0;
-	fd = 0;
+	fd = 1;
 	while (i < strlen)
 	{
 		if (str[i] == '%')
