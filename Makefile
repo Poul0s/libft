@@ -6,11 +6,11 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/25 01:16:59 by psalame          ###   ########.fr        #
+#    Updated: 2023/11/25 02:25:39 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC			=	clang
+CC			=	cc
 
 CFLAGS		=	-Wall -Wextra -Werror
 
