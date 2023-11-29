@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 22:05:26 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/29 15:03:19 by psalame          ###   ########.fr       */
+/*   Updated: 2023/11/29 16:02:24 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstremove(t_list **lst, t_list *ele, void (*del)(void *));
+void	ft_lstremoveif(t_list **lst, void *ele, void (*del)(), int (*cmp)());
 
 #endif
