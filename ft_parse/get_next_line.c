@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 22:22:17 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/10 10:17:24 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/10 10:22:47 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char	*gnl_process(int fd, t_bool close)
 		line = ft_strfjoin(oldstr[fd], readed);
 		if (readed != NULL)
 			free(readed);
-		if (line != NULL && line[0] == 0)
+		if (line == NULL || line[0] == 0)
 		{
 			free(line);
 			oldstr[fd] = NULL;
