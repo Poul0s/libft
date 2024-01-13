@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 12:37:59 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/21 17:07:26 by psalame          ###   ########.fr       */
+/*   Created: 2024/01/13 11:01:18 by psalame           #+#    #+#             */
+/*   Updated: 2024/01/13 11:01:47 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-ssize_t	ft_putnbr_fd(int n, int fd)
+unsigned int	ft_abs(int value)
 {
-	unsigned int	un;
-	char			c;
-	ssize_t			len;
+	unsigned int	res;
 
-	len = 0;
-	if (n < 0)
-	{
-		len += write(fd, "-", 1);
-		un = -n;
-	}
+	if (value >= 0)
+		res = value;
 	else
-		un = n;
-	if (un > 9)
-		len += ft_putnbr_fd(un / 10, fd);
-	c = un % 10 + '0';
-	len += write(fd, &c, 1);
-	return (len);
+		res = -value;
+	return (res);
 }

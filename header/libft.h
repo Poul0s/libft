@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:03:05 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/21 16:56:51 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 10:58:22 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 # include "ft_string.h"
 # include "ft_is.h"
 # include "ft_memoryManager.h"
@@ -29,11 +30,5 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-typedef enum e_bool
-{
-	FALSE,
-	TRUE,
-}	t_bool;
 
 #endif

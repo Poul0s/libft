@@ -6,7 +6,7 @@
 #    By: psalame <psalame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 11:02:12 by psalame           #+#    #+#              #
-#    Updated: 2023/11/29 16:02:30 by psalame          ###   ########.fr        #
+#    Updated: 2024/01/13 11:06:43 by psalame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,13 @@ SRCS		=	ft_string/ft_strlen.c \
 				ft_string/ft_strmapi.c \
 				ft_string/ft_strtrim.c \
 				ft_string/ft_substr.c \
+				\
 				ft_is/ft_isalpha.c \
 				ft_is/ft_isdigit.c \
 				ft_is/ft_isalnum.c \
 				ft_is/ft_isascii.c \
 				ft_is/ft_isprint.c \
+				\
 				ft_memoryManager/ft_memset.c \
 				ft_memoryManager/ft_memcmp.c \
 				ft_memoryManager/ft_memchr.c \
@@ -42,19 +44,32 @@ SRCS		=	ft_string/ft_strlen.c \
 				ft_memoryManager/ft_memcpy.c \
 				ft_memoryManager/ft_bzero.c \
 				ft_memoryManager/ft_calloc.c \
+				\
 				ft_convert/ft_tolower.c \
 				ft_convert/ft_toupper.c \
 				ft_convert/ft_atoi.c \
 				ft_convert/ft_itoa.c \
 				ft_convert/ft_ultoa_base.c \
+				ft_convert/ft_abs.c \
+				\
 				ft_print/ft_putstr_fd.c \
 				ft_print/ft_putchar_fd.c \
+				ft_print/ft_putchar_rep.c \
 				ft_print/ft_putendl_fd.c \
 				ft_print/ft_putnbr_fd.c \
 				ft_print/ft_putptr_fd.c \
 				ft_print/ft_putunbr_fd.c \
 				ft_print/ft_putxnbr_fd.c \
-				ft_print/ft_printf.c \
+				ft_print/printf/ft_printf.c \
+				ft_print/printf/utils/combinaison_flag.c \
+				ft_print/printf/utils/conversion_flag.c \
+				ft_print/printf/utils/print_functions/ft_printf_char.c \
+				ft_print/printf/utils/print_functions/ft_printf_hexa.c \
+				ft_print/printf/utils/print_functions/ft_printf_int.c \
+				ft_print/printf/utils/print_functions/ft_printf_ptr.c \
+				ft_print/printf/utils/print_functions/ft_printf_string.c \
+				ft_print/printf/utils/print_functions/ft_printf_uint.c \
+				\
 				ft_linkedList/ft_lstnew.c \
 				ft_linkedList/ft_lstsize.c \
 				ft_linkedList/ft_lstlast.c \
@@ -65,6 +80,7 @@ SRCS		=	ft_string/ft_strlen.c \
 				ft_linkedList/ft_lstiter.c \
 				ft_linkedList/ft_lstmap.c \
 				ft_linkedList/ft_lstremoveif.c \
+				\
 				ft_parse/ft_read_to_cstr.c \
 				ft_parse/get_next_line.c
 

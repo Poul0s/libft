@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 22:22:17 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/10 10:22:47 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 11:09:31 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	*gnl_get_line(char *full_buffer, char **oldstr)
 	}
 }
 
-static char	*gnl_process(int fd, t_bool close)
+static char	*gnl_process(int fd, bool close)
 {
 	static char	*oldstr[1024];
 	char		*readed;
@@ -95,11 +95,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1024)
 		return (NULL);
 	else
-		return (gnl_process(fd, FALSE));
+		return (gnl_process(fd, false));
 }
 
 void	close_next_line(int fd)
 {
 	if (fd >= 0 && fd < 1024)
-		gnl_process(fd, TRUE);
+		gnl_process(fd, true);
 }

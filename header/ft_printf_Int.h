@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_Int.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/10 16:13:10 by psalame           #+#    #+#             */
+/*   Updated: 2024/01/13 11:14:35 by psalame          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_PRINTF_INT_H
+# define FT_PRINTF_INT_H
+# include "libft.h"
+# include <stdarg.h>
+
+typedef struct s_print_format
+{
+	int		(*conversion)(struct s_print_format *format_data, va_list ap);
+	char	flag;
+	bool	error;
+	int		j;
+	int		field_width;
+	bool	padding_left;
+	bool	padding_right;
+	int		precision_width;
+	bool	precision;
+	bool	alternative_form;
+	bool	space_sign;
+	bool	force_sign;
+}	t_print_format;
+
+// flags managment
+
+bool	ft_is_combinaison_flag(char c);
+void	ft_parse_combinaison_flag(
+			const char *str,
+			t_print_format *data,
+			int *j,
+			va_list ap);
+bool	ft_is_conversion_flag(char c);
+void	ft_parse_conversion_flag(char flag, int *j, t_print_format *data);
+
+// print functions
+
+int		ft_printf_char(t_print_format *data, va_list ap);
+int		ft_printf_string_process(t_print_format *data,
+			const char *str,
+			bool is_null);
+int		ft_printf_string(t_print_format *data, va_list ap);
+void	ft_putunbr_size(unsigned int nb, int precision);
+int		ft_printf_int(t_print_format *data, va_list ap);
+int		ft_printf_uint(t_print_format *data, va_list ap);
+int		ft_printf_hexa(t_print_format *data, va_list ap);
+int		ft_printf_ptr(t_print_format *data, va_list ap);
+
+#endif
