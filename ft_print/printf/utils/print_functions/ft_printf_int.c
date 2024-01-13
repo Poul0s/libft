@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:22:52 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:15:12 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:51:56 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_get_abs_int_size(int nb)
 
 static void	ft_print_padding(t_print_format *data, int *writted)
 {
-	ft_putchar_rep(' ', data->field_width - *writted);
+	ft_putchar_rep(' ', data->field_width - *writted, data->fd);
 	if (data->field_width > *writted)
 		*writted += (data->field_width - *writted);
 }
@@ -39,11 +39,11 @@ static void	ft_printf_sign(int value, t_print_format *data)
 	if (value < 0 || data->force_sign || data->space_sign)
 	{
 		if (value < 0)
-			ft_putchar_fd('-', 1);
+			ft_putchar_fd('-', data->fd);
 		else if (data->force_sign)
-			ft_putchar_fd('+', 1);
+			ft_putchar_fd('+', data->fd);
 		else
-			ft_putchar_fd(' ', 1);
+			ft_putchar_fd(' ', data->fd);
 	}
 }
 
@@ -69,7 +69,7 @@ int	ft_printf_int(t_print_format *data, va_list ap)
 		ft_print_padding(data, &writted);
 	ft_printf_sign(value, data);
 	if (!data->precision || (data->precision_width > 0 || value != 0))
-		ft_putunbr_size(ft_abs(value), data->precision_width);
+		ft_putunbr_size(ft_abs(value), data->precision_width, data->fd);
 	if (data->padding_right)
 		ft_print_padding(data, &writted);
 	return (writted);

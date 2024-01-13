@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:13:10 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:14:35 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 11:30:03 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_print_format
 	int		(*conversion)(struct s_print_format *format_data, va_list ap);
 	char	flag;
 	bool	error;
-	int		j;
+	int		fd;
 	int		field_width;
 	bool	padding_left;
 	bool	padding_right;
@@ -30,6 +30,14 @@ typedef struct s_print_format
 	bool	space_sign;
 	bool	force_sign;
 }	t_print_format;
+
+typedef struct s_printf_data
+{
+	const char	*str;
+	int			writted_char;
+	int			i;
+	int			fd;
+}	t_printf_data;
 
 // flags managment
 
@@ -49,7 +57,7 @@ int		ft_printf_string_process(t_print_format *data,
 			const char *str,
 			bool is_null);
 int		ft_printf_string(t_print_format *data, va_list ap);
-void	ft_putunbr_size(unsigned int nb, int precision);
+void	ft_putunbr_size(unsigned int nb, int precision, int fd);
 int		ft_printf_int(t_print_format *data, va_list ap);
 int		ft_printf_uint(t_print_format *data, va_list ap);
 int		ft_printf_hexa(t_print_format *data, va_list ap);

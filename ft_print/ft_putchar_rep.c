@@ -6,17 +6,17 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:02:55 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:03:52 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:34:50 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_rep(char c, int rep)
+void	ft_putchar_rep(char c, int rep, int fd)
 {
 	while (rep > 0)
 	{
-		write(1, &c, 1);
+		write(fd, &c, 1);
 		rep--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 18:47:35 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:15:12 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:35:10 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int	ft_printf_char(t_print_format *data, va_list ap)
 
 	if (data->flag == '%')
 	{
-		write(1, &data->flag, 1);
+		write(data->fd, &data->flag, 1);
 		return (1);
 	}
 	if (!data->padding_right)
-		ft_putchar_rep(' ', data->field_width - 1);
+		ft_putchar_rep(' ', data->field_width - 1, data->fd);
 	c = va_arg(ap, int);
-	write(1, &c, 1);
+	write(data->fd, &c, 1);
 	if (data->padding_right)
-		ft_putchar_rep(' ', data->field_width - 1);
+		ft_putchar_rep(' ', data->field_width - 1, data->fd);
 	printed = 1;
 	if (data->field_width != 0)
 		printed += data->field_width - 1;

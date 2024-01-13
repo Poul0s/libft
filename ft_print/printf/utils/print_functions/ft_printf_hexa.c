@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:56:51 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:15:12 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:37:23 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void	ft_print_padding(t_print_format *data, int *writted)
 	char	c;
 
 	c = ' ';
-	ft_putchar_rep(c, data->field_width - *writted);
+	ft_putchar_rep(c, data->field_width - *writted, data->fd);
 	if (data->field_width > *writted)
 		*writted += (data->field_width - *writted);
 }
 
-static void	ft_putxnbr_size(unsigned int nb, bool maj, int precision)
+static void	ft_putxnbr_size(unsigned int nb, bool maj, int precision, int fd)
 {
 	const char	*base = "0123456789abcdef";
 	static int	current_width = 0;
@@ -48,22 +48,22 @@ static void	ft_putxnbr_size(unsigned int nb, bool maj, int precision)
 	if (maj)
 		c = ft_toupper(c);
 	if (nb / 16 != 0)
-		ft_putxnbr_size(nb / 16, maj, precision);
+		ft_putxnbr_size(nb / 16, maj, precision, fd);
 	else
 	{
 		while (current_width++ < precision)
-			write(1, base, 1);
+			write(fd, base, 1);
 		current_width = 0;
 	}
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
-static void	ft_print_alternative_form(bool maj)
+static void	ft_print_alternative_form(bool maj, int fd)
 {
 	if (maj)
-		ft_putstr_fd("0X", 1);
+		ft_putstr_fd("0X", fd);
 	else
-		ft_putstr_fd("0x", 1);
+		ft_putstr_fd("0x", fd);
 }
 
 int	ft_printf_hexa(t_print_format *data, va_list ap)
@@ -85,9 +85,10 @@ int	ft_printf_hexa(t_print_format *data, va_list ap)
 	if (!data->padding_right)
 		ft_print_padding(data, &writted);
 	if (value != 0 && data->alternative_form)
-		ft_print_alternative_form(data->flag == 'X');
+		ft_print_alternative_form(data->flag == 'X', data->fd);
 	if (!data->precision || (data->precision_width > 0 || value != 0))
-		ft_putxnbr_size(value, data->flag == 'X', data->precision_width);
+		ft_putxnbr_size(value, data->flag == 'X', data->precision_width, \
+			data->fd);
 	if (data->padding_right)
 		ft_print_padding(data, &writted);
 	return (writted);

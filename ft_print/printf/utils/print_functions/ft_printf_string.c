@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:00:02 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:15:12 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:55:28 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	ft_printf_string_process(t_print_format *data,
 	}
 	writted = strlen;
 	if (!data->padding_right)
-		ft_putchar_rep(' ', data->field_width - strlen);
-	write(1, str, strlen);
+		ft_putchar_rep(' ', data->field_width - strlen, data->fd);
+	write(data->fd, str, strlen);
 	if (data->padding_right)
-		ft_putchar_rep(' ', data->field_width - strlen);
+		ft_putchar_rep(' ', data->field_width - strlen, data->fd);
 	if (data->field_width > strlen)
 		writted += data->field_width - strlen;
 	return (writted);

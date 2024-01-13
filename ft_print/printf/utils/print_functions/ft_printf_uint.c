@@ -6,7 +6,7 @@
 /*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:51:47 by psalame           #+#    #+#             */
-/*   Updated: 2024/01/13 11:15:12 by psalame          ###   ########.fr       */
+/*   Updated: 2024/01/13 12:56:57 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static int	ft_get_uint_size(unsigned int nb)
 
 static void	ft_print_padding(t_print_format *data, int *writted)
 {
-	ft_putchar_rep(' ', data->field_width - *writted);
+	ft_putchar_rep(' ', data->field_width - *writted, data->fd);
 	if (data->field_width > *writted)
 		*writted += (data->field_width - *writted);
 }
 
-void	ft_putunbr_size(unsigned int nb, int precision)
+void	ft_putunbr_size(unsigned int nb, int precision, int fd)
 {
 	static int	current_width = 0;
 	char		c;
@@ -42,14 +42,14 @@ void	ft_putunbr_size(unsigned int nb, int precision)
 	current_width++;
 	c = '0' + nb % 10;
 	if (nb / 10 != 0)
-		ft_putunbr_size(nb / 10, precision);
+		ft_putunbr_size(nb / 10, precision, fd);
 	else
 	{
 		while (current_width++ < precision)
-			write(1, "0", 1);
+			write(fd, "0", 1);
 		current_width = 0;
 	}
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
 int	ft_printf_uint(t_print_format *data, va_list ap)
@@ -69,7 +69,7 @@ int	ft_printf_uint(t_print_format *data, va_list ap)
 	if (!data->padding_right)
 		ft_print_padding(data, &writted);
 	if (!data->precision || (data->precision_width > 0 || value != 0))
-		ft_putunbr_size(value, data->precision_width);
+		ft_putunbr_size(value, data->precision_width, data->fd);
 	if (data->padding_right)
 		ft_print_padding(data, &writted);
 	return (writted);
