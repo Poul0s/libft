@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstremove.c                                     :+:      :+:    :+:   */
+/*   ft_lstremoveif.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psalame <psalame@student.42.fr>            +#+  +:+       +#+        */
+/*   By: psalame <psalame@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:03:00 by psalame           #+#    #+#             */
-/*   Updated: 2023/11/29 16:01:59 by psalame          ###   ########.fr       */
+/*   Updated: 2025/11/08 11:46:39 by psalame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstremoveif(t_list **lst, void *ele, void (*del)(), int (*cmp)())
+void	ft_lstremoveif(t_list **lst, void *ele, void (*del)(void *), int (*cmp)(void *, void *))
 {
 	t_list	*prev;
 	t_list	*current;
